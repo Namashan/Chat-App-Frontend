@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="btn btn-primary card-header active">
+        Privát Üzenetek
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+            <div id="chat-messages" class="border p-2" style="height: 300px; overflow-y: scroll;">
+                <!-- Ide jön a megjelenitése a privát üzeneteknek. -->
+            </div>
+          <select class="form-select mb-2" (change)="changeRecipient($event)">
+            <option *ngFor="let user of users" value="{{ user.id }}">Címzett: {{ user.username }}</option>
+          </select>
+          <input type="text" [(ngModel)]="message" appSemicolonRestriction name="privateMessage" class="form-control mb-2" [(ngModel)]="privateMessage" placeholder="Privát üzenet">
+          <div class="d-flex justify-content-between align-items-center">
+            <form class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary" (click)="sendPrivateMessage()">Küldés</button><br>
+            </form>
+            <button class="btn btn-outline-success" (click)="messagesButton()">Fő Csatorna</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
